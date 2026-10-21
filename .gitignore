@@ -1,0 +1,5 @@
+# build outputs (added in Phase 4)
+launcher/build/
+launcher/out/
+*.jks
+*.keystore
