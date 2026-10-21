@@ -1,5 +1,8 @@
-# build outputs (added in Phase 4)
-launcher/build/
-launcher/out/
+# build outputs and local tooling
+cleanyourtv/tools/venv/
+cleanyourtv/tools/adbkey*
+cleanyourtv/launcher/local.properties
+cleanyourtv/launcher/app/build/
+cleanyourtv/launcher/.gradle/
 *.jks
 *.keystore

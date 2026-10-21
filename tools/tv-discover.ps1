@@ -48,6 +48,15 @@ Log "android=$(Prop ro.build.version.release) sdk=$(Prop ro.build.version.sdk) s
 Log "fingerprint=$(Prop ro.build.fingerprint)"
 Log "build_id=$(Prop ro.build.display.id) abi=$(Prop ro.product.cpu.abilist) characteristics=$(Prop ro.build.characteristics)"
 
+Log "product=$(Prop ro.product.name) incremental=$(Prop ro.build.version.incremental) software=$(Prop ro.software.version_id) adb_secure=$(Prop ro.adb.secure)"
+
+# facts CleanYourTV's guards need (all read-only)
+Run "wifi-owners.txt" "dumpsys wifi | grep -o 'cname=[^ ]*' | sort -u"
+Run "tvinput-services.txt" "pm query-services --components -a android.media.tv.TvInputService"
+Run "tcl-install-policy.txt" "content query --uri content://com.tcl.providers.config/all 2>/dev/null | grep -i InstallConfig"
+Log ("saved Wi-Fi owners: " + ((Get-Content (Join-Path $Out "wifi-owners.txt")) -join " ") + "  (setupwraith here = do NOT disable the setup wizard until the network is re-joined)")
+Log ("TV input service packages: " + ((Get-Content (Join-Path $Out "tvinput-services.txt") | ForEach-Object { ($_ -split '/')[0] } | Sort-Object -Unique) -join " "))
+
 # hardware
 Run "cpuinfo.txt" "cat /proc/cpuinfo"
 Run "meminfo.txt" "cat /proc/meminfo"

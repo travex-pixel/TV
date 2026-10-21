@@ -53,6 +53,16 @@ log "fingerprint=$(prop ro.build.fingerprint)"
 log "build_id=$(prop ro.build.display.id) abi=$(prop ro.product.cpu.abilist) characteristics=$(prop ro.build.characteristics)"
 log "tcl props: $(grep -ciE 'tcl|tvos|t-?vision' "$OUT/getprop.txt") lines mention TCL (see getprop.txt)"
 
+log "product=$(prop ro.product.name) incremental=$(prop ro.build.version.incremental) software=$(prop ro.software.version_id) adb_secure=$(prop ro.adb.secure)"
+
+# ---- facts CleanYourTV's guards need (all read-only) -------------------------
+run wifi-owners.txt 'dumpsys wifi | grep -o "cname=[^ ]*" | sort -u'
+run tvinput-services.txt 'pm query-services --components -a android.media.tv.TvInputService'
+run tcl-install-policy.txt 'content query --uri content://com.tcl.providers.config/all 2>/dev/null | grep -i InstallConfig'
+log "saved Wi-Fi owners: $(tr '\n' ' ' <"$OUT/wifi-owners.txt")  (setupwraith here = do NOT disable the setup wizard until the network is re-joined)"
+log "TV input service packages: $(grep -oE '^[^/]+' "$OUT/tvinput-services.txt" | sort -u | tr '\n' ' ')"
+log "TCL install policy row: $(head -c 300 "$OUT/tcl-install-policy.txt")"
+
 # ---- hardware ------------------------------------------------------------
 run cpuinfo.txt cat /proc/cpuinfo
 run meminfo.txt cat /proc/meminfo
