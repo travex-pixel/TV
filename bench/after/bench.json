@@ -1,0 +1,23 @@
+{
+  "created": "2026-10-23T01:03:22+1100",
+  "home": "com.gathin.tvhome/.MainActivity",
+  "launch_ms": {
+    "home": [
+      0,
+      0,
+      0
+    ],
+    "netflix": [
+      769,
+      670,
+      641
+    ],
+    "youtube": [
+      1083,
+      925,
+      882
+    ]
+  },
+  "mem_available_kb": 568952,
+  "processes": 273
+}

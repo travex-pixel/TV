@@ -1,0 +1,30 @@
+Tasks: 269 total,   1 running, 176 sleeping,   0 stopped,   4 zombie
+Mem:   2097152k total,  1984472k used,   112680k free,     9140k buffers
+Swap:   819196k total,        0k used,   819196k free,   657268k cached
+400%cpu 124%user  95%nice  93%sys  57%idle   2%iow   0%irq  29%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS                       
+ 2090 u0_a62       20   0 1.6G 156M  91M S 71.4   7.6   0:11.10 com.netflix.ninja
+ 2998 u0_a48       20   0 1.0G  88M  76M S 54.7   4.3   0:00.56 com.tcl.usercenter
+ 2565 u0_a1        20   0 1.2G 141M 125M S 52.3   6.8   0:04.29 com.google.android.gms.unstable
+  678 system       18  -2 1.8G 224M 187M S 42.8  10.9   0:25.07 system_server
+   62 root         20   0    0    0    0 S 28.5   0.0   0:06.56 [kswapd0]
+ 3027 shell        20   0 5.8M 3.2M 2.8M R 23.8   0.1   0:00.15 top -b -n 1 -m 25
+    8 root         20   0    0    0    0 S 14.2   0.0   0:05.82 [ksoftirqd/0]
+  323 root         20   0 198M  24M 6.8M S 11.9   1.1   0:09.07 sitatvservice all 7
+  109 root         -2   0    0    0    0 D 11.9   0.0   0:06.54 [mmcqd/0]
+   16 root         20   0    0    0    0 S 11.9   0.0   0:07.47 [ksoftirqd/1]
+  181 root         20   0 3.3M 876K 436K S  9.5   0.0   0:03.16 ueventd
+ 2630 u0_a12       RT   0 1.1G 192M 169M S  4.7   9.3   0:04.94 com.android.vending
+ 1556 u0_a74       20   0 1.0G  92M  78M S  4.7   4.4   0:02.18 com.spotify.tv.android
+ 1517 u0_a1        20   0 0.9G  66M  55M S  4.7   3.2   0:00.48 com.google.process.gservices
+  285 root         20   0  10M 2.8M 2.2M S  4.7   0.1   0:00.25 android.hardware.usb@1.1-service
+ 1770 u0_a59       20   0 0.9G  80M  70M S  2.3   3.9   0:00.58 com.tcl.xian.StartandroidService
+ 1544 u0_a55       20   0 1.2G 118M 100M S  2.3   5.7   0:02.47 com.google.android.music:main
+ 1315 u0_a1        20   0 1.5G 247M 193M S  2.3  12.0   0:20.49 com.google.android.gms
+ 1227 u0_a32       20   0 0.9G  72M  60M S  2.3   3.5   0:00.53 com.google.android.tv.remote.service
+  575 system        0 -20 2.4M 680K  20K S  2.3   0.0   0:01.05 voice_ap
+  320 root         20   0    0    0    0 I  2.3   0.0   0:00.92 [kworker/u8:8]
+  306 root         -2   0 4.9M 2.5M 2.1M S  2.3   0.1   0:01.21 lmkd
+  274 system       -3  -8  61M 5.8M 4.1M S  2.3   0.2   0:01.71 android.hardware.graphics.composer@2.1-service
+  258 root         20   0  27M 5.5M 4.5M S  2.3   0.2   0:00.83 netd
+ 2966 system       20   0 0.9G  76M  65M S  0.0   3.7   0:00.30 com.tcl.partnercustomizer.resource

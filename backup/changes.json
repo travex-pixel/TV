@@ -1,5 +1,7 @@
 {
-  "home": null,
+  "home": {
+    "original": "com.google.android.tvlauncher/.MainActivity"
+  },
   "log": [
     {
       "action": "disable",
@@ -83,6 +85,28 @@
         "13-lighthouse-coast.jpg",
         "14-autumn-valley.jpg"
       ]
+    },
+    {
+      "action": "home",
+      "after": "com.google.android.tvlauncher/.MainActivity",
+      "at": "2026-10-23T00:57:36+1100",
+      "before": "com.google.android.tvlauncher/.MainActivity",
+      "output": "Success"
+    },
+    {
+      "action": "disable",
+      "after": "disabled",
+      "at": "2026-10-23T01:00:02+1100",
+      "before": "enabled",
+      "output": "Package com.google.android.tvlauncher new state: disabled-user",
+      "package": "com.google.android.tvlauncher"
+    },
+    {
+      "action": "home",
+      "after": "com.gathin.tvhome/.MainActivity",
+      "at": "2026-10-23T01:00:06+1100",
+      "before": "com.gathin.tvhome/.MainActivity",
+      "output": "Success"
     }
   ],
   "packages": {
@@ -108,6 +132,10 @@
     },
     "com.google.android.tv.bugreportsender": {
       "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.google.android.tvlauncher": {
+      "list": "profile/stock-launcher.txt",
       "original": "enabled"
     },
     "com.google.android.tvrecommendations": {
