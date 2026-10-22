@@ -56,6 +56,33 @@
       "before": "null",
       "key": "global:private_dns_mode",
       "output": ""
+    },
+    {
+      "action": "launcher-install",
+      "at": "2026-10-23T00:53:22+1100",
+      "output": "Performing Streamed Install\nSuccess",
+      "sha256": "3a62ce80d4d84df996a95fab71a4bf7da4d42d1104a4c98c8bb527f16939c320"
+    },
+    {
+      "action": "launcher-theme",
+      "at": "2026-10-23T00:53:50+1100",
+      "files": [
+        "config.json",
+        "01-dusk-peaks.jpg",
+        "02-golden-coast.jpg",
+        "03-moon-lake.jpg",
+        "04-aurora.jpg",
+        "05-dunes.jpg",
+        "06-above-the-clouds.jpg",
+        "07-mirror-lake.jpg",
+        "08-tea-hills.jpg",
+        "09-alpenglow.jpg",
+        "10-city-lights.jpg",
+        "11-balloon-sunrise.jpg",
+        "12-monsoon.jpg",
+        "13-lighthouse-coast.jpg",
+        "14-autumn-valley.jpg"
+      ]
     }
   ],
   "packages": {
