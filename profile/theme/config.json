@@ -8,7 +8,9 @@
   ],
   "columns": 5,
   "fill_dock": false,
-  "hidden_apps": ["com.tcl.tv"],
+  "hidden_apps": [
+    "com.tcl.tv"
+  ],
   "live_tv_package": "com.tcl.tv",
   "app_library": true,
   "show_network_pill": false,
@@ -18,5 +20,6 @@
   "wallpaper_dim": 25,
   "ambient_glow": false,
   "reduced_motion": false,
-  "home_idle_clock_minutes": 0
+  "home_idle_clock_minutes": 0,
+  "wallpaper_true_color": true
 }
