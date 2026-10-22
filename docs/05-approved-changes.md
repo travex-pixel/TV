@@ -30,3 +30,7 @@ Status of each applied change is appended below as it happens, with the tool's o
 Note: an early version of `tvctl.py apply` kept only the last package's log line (the recorded
 original states were never affected). Fixed before the next batch; the per-package tool output
 for the first batch exists only in the owner's terminal.
+| 2026-10-23 00:53 | Launcher 2.5 installed (sha256 `3a62ce80…`), theme pushed, started | passed, owner tested D-pad, 5 dock apps, Inputs, Settings, App library | `changes.json`, `shots/launcher-20261023-005359.png` |
+| 2026-10-23 00:57 | Home switch attempted with stock launcher enabled | not switched (priority 2 wins on this firmware) | `changes.json` |
+| 2026-10-23 01:00 | **Stock launcher disabled** (approved after tests) and Home set to the new launcher | passed; Home and Back land on the new launcher | `changes.json` |
+| 2026-10-23 01:03 | Reboot | new launcher is Home after restart; 13 packages still disabled, 0 drift | `bench/after/`, `shots/after-reboot.png` |

@@ -9,6 +9,7 @@
     tvctl.py verify                          compare the TV with the recorded changes (drift check)
     tvctl.py shot <name> [--home]            screenshot the TV into shots/<name>.png (--home presses Home first)
     tvctl.py launcher install|theme|start|uninstall   Phase 5: install the CI-built APK, push profile/theme, start it
+    tvctl.py audit                           read-only final checks (permissions, Home, DNS, ADB, disabled count)
     tvctl.py bench <name>                    start-up timings, CPU and memory snapshot into bench/<name>/
 
 Environment: TV_HOST (ip or ip:port, default port 5555), ADB (default: adb on PATH).
@@ -471,6 +472,31 @@ def cmd_launcher(args):
 
 
 COMMANDS["launcher"] = cmd_launcher
+
+
+def cmd_audit(_):
+    """Read-only final checks for the security review: permissions, Home, DNS, ADB, disabled count."""
+    manifest = need_manifest(); connect(); check_identity(manifest)
+    pkg = shell(f"dumpsys package {LAUNCHER}")
+    granted = [l.strip() for l in pkg.splitlines() if "granted=true" in l]
+    print("launcher runtime permissions granted:", [g.split(":")[0] for g in granted] or "none")
+    print("launcher requests INTERNET:", "android.permission.INTERNET" in pkg)
+    print("HOME:", home_now())
+    cands = shell("cmd package query-activities --brief -a android.intent.action.MAIN -c android.intent.category.HOME")
+    print("HOME candidates:", [l.strip() for l in cands.splitlines() if "/" in l])
+    for key in ("private_dns_mode", "private_dns_specifier", "window_animation_scale",
+                "transition_animation_scale", "animator_duration_scale", "adb_enabled"):
+        print(f"global {key} = {shell('settings get global ' + key)}")
+    print("secure enabled_accessibility_services =", shell("settings get secure enabled_accessibility_services"))
+    print("ro.adb.secure =", shell("getprop ro.adb.secure"), " service.adb.tcp.port =", shell("getprop service.adb.tcp.port"))
+    disabled = packages("-d")
+    print(f"disabled packages now: {len(disabled)} (baseline {sum(1 for s in manifest['packages'].values() if s == 'disabled')})")
+    print("stock launcher state:", state_of("com.google.android.tvlauncher"))
+    print("crash buffer mentions of launcher:", shell(f"logcat -d -b crash | grep -c {LAUNCHER}"))
+    print("uptime:", shell("uptime"))
+
+
+COMMANDS["audit"] = cmd_audit
 
 
 if __name__ == "__main__":

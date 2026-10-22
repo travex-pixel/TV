@@ -17,6 +17,9 @@ recorded with its original value and a rollback.
 | `tools/tv-discover.ps1` | Read-only TV discovery script (Windows PowerShell) |
 | `tools/tvctl.py` | Backup, apply, restore (dry run), verify, screenshot and benchmark for the TV over adb; manifest-driven, device-identity checked |
 | `profile/debloat-approved.txt` | The approved list actually applied (Tier 1 only) |
+| `docs/07-test-results.md` | Real-TV test matrix, Partner Reviews 5 and 6, before/after measurements |
+| `docs/RECOVERY.md` | Minimal-step undo, with and without the phone |
+| `docs/06-launcher.md` | Launcher configuration, Partner Reviews 3 and 4, install plan |
 | `docs/05-approved-changes.md` | What was approved, declined, and applied, with rollback for each |
 | `profile/debloat-proposed.txt` | The tiered package proposal for this TV (nothing applied without approval) |
 | `docs/04-backup-and-debloat-proposal.md` | Backup/restore design, Partner Review 2 results, the Tier 1/2/3 proposal and the approval questions |
@@ -35,7 +38,8 @@ without an explicit approval step.
 
 ## Current status
 
-Phase 1 (discovery) is done: the TV is a TCL BeyondTV on Android TV 9 (AP08),
-run from Termux on a phone. See `docs/03-device-report.md`. Phase 2/3 tooling is
-written and tested on a simulated TV; see `docs/04-backup-and-debloat-proposal.md`
-for the approval questions. Nothing has been changed on the TV.
+**Done and in daily use.** The new launcher is Home (survived a reboot), 13 TCL/Google
+telemetry and promo packages are disabled, animations are faster, Private DNS blocks ad
+domains. The original launcher is disabled, not removed. Undo: `docs/RECOVERY.md`.
+Remaining follow-ups: a restore dry run on the TV, a re-measurement after a day of uptime,
+and turning USB debugging off when finished.
