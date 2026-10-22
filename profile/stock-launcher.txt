@@ -1,0 +1,5 @@
+# The original Android TV Home. Disabled (never uninstalled) only after the replacement launcher was
+# installed, started and tested, and only with explicit approval. On this firmware the stock launcher's
+# HOME filter has priority 2, so Android ignores a lower-priority preferred home while it is enabled.
+# Undo: python3 tools/tvctl.py restore   (or on the TV: Settings > Apps > see all > Android TV Home > Enable)
+com.google.android.tvlauncher
