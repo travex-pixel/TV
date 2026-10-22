@@ -15,6 +15,9 @@ recorded with its original value and a rollback.
 | `docs/ADB-SETUP.md` | How to enable ADB on the TV and connect from your computer |
 | `tools/tv-discover.sh` | Read-only TV discovery script (macOS / Linux) |
 | `tools/tv-discover.ps1` | Read-only TV discovery script (Windows PowerShell) |
+| `tools/tvctl.py` | Backup, apply, restore (dry run), verify, screenshot and benchmark for the TV over adb; manifest-driven, device-identity checked |
+| `profile/debloat-proposed.txt` | The tiered package proposal for this TV (nothing applied without approval) |
+| `docs/04-backup-and-debloat-proposal.md` | Backup/restore design, Partner Review 2 results, the Tier 1/2/3 proposal and the approval questions |
 | `tools/match-profile.py` | Scores CleanYourTV's example lists against a discovery run (offline) |
 | `docs/03-device-report.md` | The actual TV: TCL BeyondTV, Android TV 9, AP08; matched CleanYourTV profiles |
 | `docs/02-cleanyourtv-review.md` | Capability comparison and security review of CleanYourTV; what is reused |
@@ -31,5 +34,6 @@ without an explicit approval step.
 ## Current status
 
 Phase 1 (discovery) is done: the TV is a TCL BeyondTV on Android TV 9 (AP08),
-run from Termux on a phone. See `docs/03-device-report.md`. Next: commit the
-full discovery folder, then Phase 2 (backup) and Phase 3 (reviewed debloat list).
+run from Termux on a phone. See `docs/03-device-report.md`. Phase 2/3 tooling is
+written and tested on a simulated TV; see `docs/04-backup-and-debloat-proposal.md`
+for the approval questions. Nothing has been changed on the TV.

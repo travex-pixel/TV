@@ -1,0 +1,71 @@
+# TCL BeyondTV (AU firmware TCL-AU-RT2851-S1), Android TV 9, build AP08 / V8-R851T02-LF1V634.
+# PROPOSAL ONLY. Nothing here is applied until each tier is approved. Lines starting with # are
+# off. Apply with:  TV_HOST=192.168.0.103 python3 tools/tvctl.py apply profile/debloat-proposed.txt
+# Undo with:        TV_HOST=192.168.0.103 python3 tools/tvctl.py restore
+# Everything is DISABLED for user 0, never uninstalled. Evidence: docs/04-debloat-proposal.md.
+
+# ===== TIER 1: RECOMMENDED, LOW RISK (telemetry, promos, recommendation feeds) =====
+com.tcl.bi                                  # TCL BI analytics; two processes resident right now
+com.tcl.tv.tclhome_passive                  # pushes TCL promo content into the home screen at boot; process resident
+com.tcl.partnercustomizer                   # TCL promo rows / TCL Channel tile on the stock home; process resident
+com.tcl.messagebox                          # TCL message/promo box; process resident
+com.tcl.esticker                            # retail energy-label sticker (came back by itself on one AP08 unit; harmless if so)
+com.tcl.waterfall.overseas                  # TCL web content feed
+com.google.android.tvrecommendations        # stock home recommendation rows (14 MB resident); pointless with the new launcher
+com.google.android.leanbacklauncher.recommendations   # same, older recommendation service
+com.google.android.feedback                 # "send feedback" uploader
+com.google.android.tv.bugreportsender       # bug report uploader
+com.google.android.partnersetup             # partner-app attribution
+com.google.android.onetimeinitializer       # first-run leftovers
+android.autoinstalls.config.tcl.device      # partner-app auto-installer config
+
+# ===== TIER 2: OPTIONAL, WITH TRADE-OFFS (your choice; say which) =====
+# --- 2a. Google voice stack: frees CPU and ~100-200 MB; costs the remote's mic button and voice search
+# com.google.android.katniss                # Google voice search / Assistant (68 MB resident in two processes)
+# com.google.android.speech.pumpkin         # offline speech recognition
+# com.tcl.assistant                         # TCL's Assistant bridge
+# com.tcl.micmanager                        # remote microphone manager
+# com.google.android.tv.assistant           # Assistant LED service
+# com.tcl.smartalexa                        # Alexa integration (11 MB resident); only if you never use Alexa
+# --- 2b. Screen mirroring / phone link: keep if you cast from a phone (Chromecast itself is NOT touched)
+# com.tcl.miracast                          # Miracast
+# com.tcl.MultiScreenInteraction_TV         # TCL T-Cast / MagiConnect phone app link (process resident)
+# --- 2c. TCL extras
+# com.tcl.tvweishi                          # TCL "TV Guard" cleaner (also an installer service; disable only after the launcher is installed)
+# com.tcl.appmarket2                        # TCL app store (Play Store stays; same installer note)
+# com.tcl.usercenter                        # TCL account login; TCL re-enables it at every boot, so this one does not stick
+# com.tcl.notereminder                      # note/reminder app; also re-enabled at boot on sibling units
+# com.tcl.keyhelp                           # remote-key help overlays
+# com.tcl.useragreement                     # end-user agreement screens
+# com.tcl.android.webview                   # unused duplicate WebView (Google WebView is active)
+# com.tcl.ui_mediaCenter                    # USB media centre (players stay)
+# com.tcl.copydatatotv                      # copy-to-TV helper, starts at boot
+# --- 2d. Unused Google and preloaded apps (re-enable any time)
+# com.google.android.videos                 # Play Movies & TV (also registers a TV input; leave if you use it)
+# com.google.android.youtube.tvmusic        # YouTube Music
+# com.google.android.play.games             # Play Games
+# com.google.android.marvin.talkback        # TalkBack screen reader
+# com.google.android.syncadapters.calendar  # calendar sync
+# com.google.android.syncadapters.contacts  # contacts sync
+# com.android.printspooler                  # printing
+# com.google.android.backdrop               # Ambient screensaver (pick another screensaver first)
+# com.tcl.pvr.pvrplayer                     # PVR recording player
+# com.tcl.samba                             # network share browser
+# com.tcl.videocall                         # TCL video call
+# com.tcl.browser                           # TCL web browser
+
+# ===== TIER 3: NOT RECOMMENDED (load-bearing; tvctl refuses them without --allow) =====
+# com.tcl.tv com.tcl.tvinput               # Live TV, HDMI inputs, tuner
+# com.tcl.keycustomfunctionservice          # remote key handling, fallback home
+# com.tcl.framework.custom                  # TCL key receiver
+# com.tcl.tcl_bt_rcu_service com.tcl.autopair com.google.android.tv.remote.service   # Bluetooth remote
+# com.tcl.inputmethod.international com.google.android.inputmethod.latin             # keyboards
+# com.tcl.settings com.android.tv.settings com.tcl.initsetup com.tcl.factory.view
+# com.tcl.showmode                          # sound modes (Dolby/DTS), not only demo mode
+# com.tcl.xian.StartandroidService          # device authentication
+# com.tcl.appstatecontroller com.tcl.UpdatePeripheral com.tcl.rc.ota   # boot/peripheral services, unclear roles
+# com.tcl.versionUpdateApp                  # TCL firmware updater (kept unless you decide otherwise)
+# com.realtek.netflix.setting com.android.WifiCountryService
+# com.google.android.gms com.google.android.gsf com.android.vending com.google.android.packageinstaller
+# com.google.android.apps.mediashell        # Chromecast built-in
+# com.google.android.tvlauncher             # the original home: stays enabled until the replacement is proven AND you approve
