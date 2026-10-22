@@ -34,3 +34,5 @@ for the first batch exists only in the owner's terminal.
 | 2026-10-23 00:57 | Home switch attempted with stock launcher enabled | not switched (priority 2 wins on this firmware) | `changes.json` |
 | 2026-10-23 01:00 | **Stock launcher disabled** (approved after tests) and Home set to the new launcher | passed; Home and Back land on the new launcher | `changes.json` |
 | 2026-10-23 01:03 | Reboot | new launcher is Home after restart; 13 packages still disabled, 0 drift | `bench/after/`, `shots/after-reboot.png` |
+| 2026-10-23 | Wallpapers switched to 32-bit decode (`wallpaper_true_color`) to remove gradient banding | pushed; owner applied with `launcher theme` | `profile/theme/config.json` |
+| 2026-10-23 | Photographic wallpapers | **declined for now** by the owner. Wikimedia Commons throttles this cloud address (HTTP 429, retry-after 600 s) and serves thumbnails from `thumb.wikimedia.org`, which was not allowed; the phone route (own photos into `profile/theme/photos`) remains available any time | n/a |
