@@ -6,3 +6,5 @@ cleanyourtv/launcher/app/build/
 cleanyourtv/launcher/.gradle/
 *.jks
 *.keystore
+__pycache__/
+*.pyc

@@ -106,3 +106,34 @@ small. The animation-scale change affects perceived snappiness, not these timing
 
 Release decision: **approved for daily use**, with three follow-ups: run the restore dry run
 once, re-measure after a day of uptime, and turn debugging off when you are done iterating.
+
+## Appendix: final audit and restore dry run on the real TV (2026-10-23 01:11, 8 min after reboot)
+
+`tvctl.py audit`:
+
+```
+launcher runtime permissions granted: ACCESS_NETWORK_STATE, ACCESS_WIFI_STATE   (no location)
+launcher requests INTERNET: False
+HOME: com.gathin.tvhome/.MainActivity
+HOME candidates: com.gathin.tvhome/.MainActivity, com.tcl.keycustomfunctionservice/.FallbackHome,
+                 com.android.tv.settings/.system.FallbackHome
+private_dns_mode = hostname, private_dns_specifier = dns.adguard-dns.com
+window/transition/animator animation scale = 0.5
+enabled_accessibility_services = null
+ro.adb.secure = 1, service.adb.tcp.port = 5555, adb_enabled = 1
+disabled packages now: 34 (baseline 20)   -> 13 Tier 1 + the stock launcher
+stock launcher state: disabled
+crash buffer mentions of launcher: 0
+load average: 19.47 at 8 min uptime
+```
+
+`tvctl.py restore --dry-run` listed, and would do, exactly: Home back to
+`com.google.android.tvlauncher/.MainActivity`; `pm enable` for the 13 Tier 1 packages and the stock
+launcher; delete `animator_duration_scale`, `private_dns_mode`, `private_dns_specifier`
+(unset before); `transition_animation_scale` and `window_animation_scale` back to 1.0. Test case 20
+therefore moves from "not exercised" to **dry run verified on device; live restore still unexercised**.
+
+Note on the load average: it was 19.6 after 16 days of uptime before any change and 19.5 eight
+minutes after the reboot with the new launcher. That number is a property of this firmware (kernel
+threads counted as runnable), not something the project changed in either direction; the
+responsive measures are the app start times and memory above.
