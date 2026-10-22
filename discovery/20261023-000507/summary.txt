@@ -1,0 +1,9 @@
+== tv-discover 20261023-000507  target=192.168.0.103:5555  adb=Android Debug Bridge version 1.0.41
+== adb state: error: device unauthorized.
+This adb server's $ADB_VENDOR_KEYS is not set
+Try 'adb kill-server' if that seems wrong.
+Otherwise check for a confirmation dialog on your device.
+== TV is connected but NOT authorised. Look at the TV screen for 'Allow USB debugging?', choose Always allow + OK, and re-run.
+List of devices attached
+192.168.0.103:5555     unauthorized transport_id:1
+

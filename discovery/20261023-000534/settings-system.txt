@@ -1,0 +1,9 @@
+ENTER_FAC_FLAG=1
+alarm_alert_set=1
+gearhead:driving_mode_settings_enabled=0
+mode_ringer_streams_affected=128
+notification_sound_set=1
+persist.tcl.speaker.status=0
+ringtone_set=1
+standby_save_bootsource=1
+volume_music_speaker=15

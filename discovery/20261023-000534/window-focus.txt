@@ -1,0 +1,2 @@
+  mCurrentFocus=Window{81afcd2 u0 com.android.tv.settings/com.android.tv.settings.MainSettings}
+  mFocusedApp=AppWindowToken{fe9ce21 token=Token{7c74488 ActivityRecord{46882b u0 com.android.tv.settings/.MainSettings t9788}}}

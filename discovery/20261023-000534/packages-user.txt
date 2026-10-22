@@ -1,0 +1,17 @@
+package:com.crunchyroll.crunchyroid
+package:au.com.foxtel.atv
+package:au.com.kayosports.tv
+package:com.spotify.tv.android
+package:com.nbaimd.gametime.nba2011
+package:com.tcl.browser
+package:com.google.android.apps.inputmethod.hindi
+package:com.espn.score_center
+package:au.com.ninenow.ctv
+package:com.tcl.videocall
+package:au.com.tenplay
+package:com.google.android.music
+package:tv.twitch.android.app
+package:com.cbs.ca
+package:com.swm.live
+package:com.ionitech.airscreen
+package:com.disney.disneyplus

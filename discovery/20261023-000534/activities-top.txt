@@ -1,0 +1,2 @@
+    mResumedActivity: ActivityRecord{46882b u0 com.android.tv.settings/.MainSettings t9788}
+  ResumedActivity: ActivityRecord{46882b u0 com.android.tv.settings/.MainSettings t9788}

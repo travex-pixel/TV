@@ -1,0 +1,43 @@
+processor	: 0
+model name	: ARMv7 Processor rev 0 (v7l)
+BogoMIPS	: 44.18
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm aes pmull sha1 sha2 crc32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x1
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 1
+model name	: ARMv7 Processor rev 0 (v7l)
+BogoMIPS	: 44.18
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm aes pmull sha1 sha2 crc32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x1
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 2
+model name	: ARMv7 Processor rev 0 (v7l)
+BogoMIPS	: 44.18
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm aes pmull sha1 sha2 crc32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x1
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 3
+model name	: ARMv7 Processor rev 0 (v7l)
+BogoMIPS	: 44.18
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm aes pmull sha1 sha2 crc32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x1
+CPU part	: 0xd05
+CPU revision	: 0
+
+Hardware	: rtd285o
+Revision	: 0000
+Serial		: 0000000000000000

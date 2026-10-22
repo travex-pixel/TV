@@ -1,0 +1,111 @@
+== tv-discover 20261023-000534  target=192.168.0.103:5555  adb=Android Debug Bridge version 1.0.41
+== adb state: device
+== model=BeyondTV brand=TCL device=BeyondTV board=rtd285o/rtd285o
+== android=9 sdk=28 security_patch=2021-01-05
+== fingerprint=TCL/BeyondTV/BeyondTV:9/PPR1.180610.011/AP08:user/release-keys
+== build_id=PPR1.180610.011 release-keys abi=armeabi-v7a,armeabi characteristics=nosdcard,tv
+== tcl props: 50 lines mention TCL (see getprop.txt)
+== product=BeyondTV incremental=AP08 software=V8-R851T02-LF1V634 adb_secure=1
+== saved Wi-Fi owners: cname=android.uid.system:1000   (setupwraith here = do NOT disable the setup wizard until the network is re-joined)
+== TV input service packages: com.google.android.videos com.tcl.tvinput 
+== TCL install policy row: 
+== cpu cores=4  model name	: ARMv7 Processor rev 0 (v7l)
+== mem: MemTotal: 2097152 kB MemAvailable: 430196 kB 
+== storage: /dev/block/mmcblk0p17 10G 6.4G 3.5G 65% /data
+== display: Physical size: 1920x1080 Physical density: 320 
+== packages: total=156 system=139 user=17 disabled=20
+== vendor-ish packages (tcl/tv/vision/ads):
+android.autoinstalls.config.tcl.device
+com.android.providers.downloads
+com.android.statementservice
+com.android.tv.settings
+com.google.android.leanbacklauncher.recommendations
+com.google.android.tv.assistant
+com.google.android.tv.bugreportsender
+com.google.android.tv.frameworkpackagestubs
+com.google.android.tv.remote.service
+com.google.android.tvrecommendations
+com.spotify.tv.android
+com.tcl.MultiScreenInteraction_TV
+com.tcl.UpdatePeripheral
+com.tcl.android.webview
+com.tcl.appmarket2
+com.tcl.appstatecontroller
+com.tcl.assistant
+com.tcl.audioplayer
+com.tcl.autopair
+com.tcl.bi
+com.tcl.bootadservice
+com.tcl.browser
+com.tcl.common.terminalmanagerplus
+com.tcl.copydatatotv
+com.tcl.esticker
+com.tcl.factory.view
+com.tcl.framework.custom
+com.tcl.gallery
+com.tcl.imageplayer
+com.tcl.initsetup
+com.tcl.inputmethod.international
+com.tcl.keycustomfunctionservice
+com.tcl.keyhelp
+com.tcl.messagebox
+com.tcl.micmanager
+com.tcl.miracast
+com.tcl.notereminder
+com.tcl.partnercustomizer
+com.tcl.partnercustomizer.resource
+com.tcl.pvr.pvrplayer
+com.tcl.rc.ota
+com.tcl.samba
+com.tcl.settings
+com.tcl.showmode
+com.tcl.smartalexa
+com.tcl.systemuioverlay
+com.tcl.tcl_bt_rcu_service
+com.tcl.tv
+com.tcl.tv.tclhome_master
+com.tcl.tv.tclhome_passive
+com.tcl.tvinput
+com.tcl.tvweishi
+com.tcl.ui_mediaCenter
+com.tcl.useragreement
+com.tcl.usercenter
+com.tcl.versionUpdateApp
+com.tcl.videocall
+com.tcl.videoplayer
+com.tcl.waterfall.overseas
+com.tcl.xian.StartandroidService
+== leanback features: 4 (see features.txt)
+== current HOME resolves to: com.google.android.tvlauncher/.MainActivity
+== HOME candidates:
+3 activities found:
+  Activity #0:
+    priority=2 preferredOrder=0 match=0x108000 specificIndex=-1 isDefault=true
+    com.google.android.tvlauncher/.MainActivity
+  Activity #1:
+    priority=-999 preferredOrder=0 match=0x108000 specificIndex=-1 isDefault=true
+    com.tcl.keycustomfunctionservice/.FallbackHome
+  Activity #2:
+    priority=-1000 preferredOrder=0 match=0x108000 specificIndex=-1 isDefault=true
+    com.android.tv.settings/.system.FallbackHome
+== HOME role holder: cmd: Can't find service: role 
+== focused window:   mCurrentFocus=Window{81afcd2 u0 com.android.tv.settings/com.android.tv.settings.MainSettings}   mFocusedApp=AppWindowToken{fe9ce21 token=Token{7c74488 ActivityRecord{46882b u0 com.android.tv.settings/.MainSettings t9788}}} 
+== animation scales: transition_animation_scale=1.0 window_animation_scale=1.0 
+== secure settings readable: 84 lines
+== process count: 261  load: cat: /proc/loadavg: Permission denied
+== top RSS (dumpsys meminfo):
+Total PSS by process:
+    136,354K: com.netflix.ninja (pid 1704 / activities)
+    136,198K: com.google.android.tvlauncher (pid 2969 / activities)
+    109,589K: system (pid 452)
+     71,133K: com.google.android.gms (pid 3021)
+     42,968K: com.android.vending (pid 3951)
+     38,626K: com.google.android.katniss:interactor (pid 4066)
+     32,320K: com.android.tv.settings (pid 2625 / activities)
+     29,714K: com.google.android.katniss:search (pid 856)
+     23,741K: com.android.phone (pid 3126)
+     23,140K: sitatvservice (pid 331)
+     21,204K: logd (pid 241)
+     19,595K: com.google.android.apps.mediashell (pid 1995)
+== screenshot saved: discovery/20261023-000534/screen-now.png (215456 bytes)
+== adb shell identity: uid=2000(shell) gid=2000(shell) groups=2000(shell),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid) context=u:r:shell:s0

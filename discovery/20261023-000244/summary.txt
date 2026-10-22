@@ -1,0 +1,5 @@
+== tv-discover 20261023-000244  target=192.168.0.103:5555  adb=Android Debug Bridge version 1.0.41
+== adb state: error: device '192.168.0.103:5555' not found
+== TV not reachable at 192.168.0.103:5555. Check the IP in Settings > Network, that USB/Network debugging is ON, and that this computer is on the same Wi-Fi.
+List of devices attached
+

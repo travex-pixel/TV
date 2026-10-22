@@ -1,0 +1,2 @@
+ 00:06:04 up 16 days,  7:38,  0 users,  load average: 19.62, 19.64, 19.98
+cat: /proc/loadavg: Permission denied
