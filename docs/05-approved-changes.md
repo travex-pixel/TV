@@ -15,3 +15,18 @@ Approvals given by the owner on 2026-10-23 (chat). Every change below is applied
 | 8 | Switch Home to the launcher | **not yet approved**; asked only after Phase 5 tests pass | `tvctl.py restore` sets Home back |
 
 Status of each applied change is appended below as it happens, with the tool's output.
+
+## Applied so far
+
+| When (TV time) | Change | Result | Evidence |
+|---|---|---|---|
+| 2026-10-23 00:34 | Baseline backup | manifest written: 156 packages (20 disabled), HOME = stock launcher, serial recorded | `backup/20261023-003417/`, `backup/manifest.json`, home screenshot shows the Prime Video hero banner, "Mega Movie Week" promo row and recommendation chips |
+| 2026-10-23 00:34 | Benchmark before | Netflix cold start 806-1091 ms, YouTube 1238-1661 ms, 454 MB available, 262 processes; `top` shows the **stock launcher at 34 % CPU while idle** | `bench/before/` |
+| 2026-10-23 ~00:40 | Tier 1: 13 packages disabled | owner reports all 13 disabled (tool output not pasted; `changes.json` holds all 13 originals as `enabled`) | `backup/changes.json`; `verify` output to be captured with the next batch |
+| same | Animation scales 0.5 ×3 | applied, read back 0.5 (originals: 1.0, 1.0, unset) | `backup/changes.json` log |
+| same | Private DNS AdGuard, hostname mode | applied; owner confirms Netflix plays | `backup/changes.json` log |
+| same | Screenshot after Tier 1 | **0 bytes** (Netflix was on screen; protected surface) — to be retaken with Home showing | `shots/after-tier1.png` |
+
+Note: an early version of `tvctl.py apply` kept only the last package's log line (the recorded
+original states were never affected). Fixed before the next batch; the per-package tool output
+for the first batch exists only in the owner's terminal.
