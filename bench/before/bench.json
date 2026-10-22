@@ -1,0 +1,23 @@
+{
+  "created": "2026-10-23T00:34:53+1100",
+  "home": "com.google.android.tvlauncher/.MainActivity",
+  "launch_ms": {
+    "home": [
+      0,
+      0,
+      0
+    ],
+    "netflix": [
+      1091,
+      806,
+      994
+    ],
+    "youtube": [
+      1661,
+      1528,
+      1238
+    ]
+  },
+  "mem_available_kb": 454072,
+  "processes": 262
+}

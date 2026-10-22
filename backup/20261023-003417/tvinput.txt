@@ -1,0 +1,79 @@
+User Ids (Current user: 0):
+  0
+UserState (0):
+  inputMap: inputId -> TvInputState
+    com.tcl.tvinput/.TDTVInputService/HW1413742848: info: TvInputInfo{id=com.tcl.tvinput/.TDTVInputService/HW1413742848, pkg=com.tcl.tvinput, service=com.tcl.tvinput.TDTVInputService}; state: 0
+    com.google.android.videos/.tv.usecase.tvinput.playback.TvInputService: info: TvInputInfo{id=com.google.android.videos/.tv.usecase.tvinput.playback.TvInputService, pkg=com.google.android.videos, service=com.google.android.videos.tv.usecase.tvinput.playback.TvInputService}; state: 0
+    com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413743104: info: TvInputInfo{id=com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413743104, pkg=com.tcl.tvinput, service=com.tcl.tvinput.passthroughinput.TvPassThroughService}; state: 0
+    com.google.android.videos/com.google.android.apps.play.movies.tv.usecase.tvinput.playback.VideoPreviewInputService: info: TvInputInfo{id=com.google.android.videos/com.google.android.apps.play.movies.tv.usecase.tvinput.playback.VideoPreviewInputService, pkg=com.google.android.videos, service=com.google.android.apps.play.movies.tv.usecase.tvinput.playback.VideoPreviewInputService}; state: 0
+    com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744128: info: TvInputInfo{id=com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744128, pkg=com.tcl.tvinput, service=com.tcl.tvinput.passthroughinput.TvPassThroughService}; state: 1
+    com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744640: info: TvInputInfo{id=com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744640, pkg=com.tcl.tvinput, service=com.tcl.tvinput.passthroughinput.TvPassThroughService}; state: 1
+    com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744384: info: TvInputInfo{id=com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744384, pkg=com.tcl.tvinput, service=com.tcl.tvinput.passthroughinput.TvPassThroughService}; state: 1
+  packageSet:
+    com.google.android.videos
+    com.tcl.tvinput
+  clientStateMap: ITvInputClient -> ClientState
+  serviceStateMap: ComponentName -> ServiceState
+    ComponentInfo{com.tcl.tvinput/com.tcl.tvinput.passthroughinput.TvPassThroughService}: com.android.server.tv.TvInputManagerService$ServiceState@dc14f55
+      sessionTokens:
+      service: android.media.tv.ITvInputService$Stub$Proxy@238dd6a
+      callback: com.android.server.tv.TvInputManagerService$ServiceCallback@fa8c25b
+      bound: true
+      reconnecting: false
+    ComponentInfo{com.tcl.tvinput/com.tcl.tvinput.TDTVInputService}: com.android.server.tv.TvInputManagerService$ServiceState@374aaf8
+      sessionTokens:
+      service: android.media.tv.ITvInputService$Stub$Proxy@8948bd1
+      callback: com.android.server.tv.TvInputManagerService$ServiceCallback@e7f6636
+      bound: true
+      reconnecting: false
+  sessionStateMap: ITvInputSession -> SessionState
+  callbackSet:
+    android.media.tv.ITvInputManagerCallback$Stub$Proxy@a89d939
+    android.media.tv.ITvInputManagerCallback$Stub$Proxy@4759854
+    android.media.tv.ITvInputManagerCallback$Stub$Proxy@8db1de9
+    android.media.tv.ITvInputManagerCallback$Stub$Proxy@579744a
+    android.media.tv.TvInputManager$2@e8fa8e
+    android.media.tv.ITvInputManagerCallback$Stub$Proxy@9ce91b8
+    android.media.tv.ITvInputManagerCallback$Stub$Proxy@407a74e
+    android.media.tv.ITvInputManagerCallback$Stub$Proxy@96c7911
+    android.media.tv.ITvInputManagerCallback$Stub$Proxy@1f679fb
+    android.media.tv.ITvInputManagerCallback$Stub$Proxy@ca72be9
+    android.media.tv.ITvInputManagerCallback$Stub$Proxy@43dcff2
+  mainSessionToken: null
+TvInputHardwareManager Info:
+  mConnections: deviceId -> Connection
+    1413742592: Connection{ mHardwareInfo: TvInputHardwareInfo {id=1413742592, type=2, audio_type=-2147467264, audio_addr=1, cable_connection_status=0}, mInfo: null, mCallback: null, mConfigs: [TvStreamConfig {mStreamId=1413742592;mType=1;mGeneration=2}], mCallingUid: null, mResolvedUserId: null }
+    1413742848: Connection{ mHardwareInfo: TvInputHardwareInfo {id=1413742848, type=2, audio_type=-2147467264, audio_addr=1, cable_connection_status=0}, mInfo: null, mCallback: null, mConfigs: [TvStreamConfig {mStreamId=1413742848;mType=1;mGeneration=2}], mCallingUid: null, mResolvedUserId: null }
+    1413743104: Connection{ mHardwareInfo: TvInputHardwareInfo {id=1413743104, type=3, audio_type=-2147450880, audio_addr=11, cable_connection_status=0}, mInfo: null, mCallback: null, mConfigs: [TvStreamConfig {mStreamId=1413743104;mType=1;mGeneration=2}], mCallingUid: null, mResolvedUserId: null }
+    1413743360: Connection{ mHardwareInfo: TvInputHardwareInfo {id=1413743360, type=3, audio_type=-2147450880, audio_addr=13, cable_connection_status=0}, mInfo: null, mCallback: null, mConfigs: [TvStreamConfig {mStreamId=1413743360;mType=1;mGeneration=2}], mCallingUid: null, mResolvedUserId: null }
+    1413743616: Connection{ mHardwareInfo: TvInputHardwareInfo {id=1413743616, type=7, audio_type=-2147450880, audio_addr=51, cable_connection_status=0}, mInfo: null, mCallback: null, mConfigs: [TvStreamConfig {mStreamId=1413743616;mType=1;mGeneration=4}], mCallingUid: null, mResolvedUserId: null }
+    1413744128: Connection{ mHardwareInfo: TvInputHardwareInfo {id=1413744128, type=9, audio_type=-2147483616, audio_addr=1, hdmi_port=1, cable_connection_status=0}, mInfo: null, mCallback: null, mConfigs: [TvStreamConfig {mStreamId=1413744128;mType=1;mGeneration=2}], mCallingUid: null, mResolvedUserId: null }
+    1413744384: Connection{ mHardwareInfo: TvInputHardwareInfo {id=1413744384, type=9, audio_type=-2147483616, audio_addr=2, hdmi_port=2, cable_connection_status=0}, mInfo: null, mCallback: null, mConfigs: [TvStreamConfig {mStreamId=1413744384;mType=1;mGeneration=2}], mCallingUid: null, mResolvedUserId: null }
+    1413744640: Connection{ mHardwareInfo: TvInputHardwareInfo {id=1413744640, type=9, audio_type=-2147483616, audio_addr=3, hdmi_port=3, cable_connection_status=0}, mInfo: null, mCallback: null, mConfigs: [TvStreamConfig {mStreamId=1413744640;mType=1;mGeneration=2}], mCallingUid: null, mResolvedUserId: null }
+    1413745408: Connection{ mHardwareInfo: TvInputHardwareInfo {id=1413745408, type=5, audio_type=2097152, audio_addr=2, cable_connection_status=0}, mInfo: null, mCallback: null, mConfigs: [TvStreamConfig {mStreamId=1413745408;mType=1;mGeneration=2}], mCallingUid: null, mResolvedUserId: null }
+    1413745664: Connection{ mHardwareInfo: TvInputHardwareInfo {id=1413745664, type=9, audio_type=-2147483616, audio_addr=4, hdmi_port=4, cable_connection_status=0}, mInfo: null, mCallback: null, mConfigs: [TvStreamConfig {mStreamId=1413745664;mType=1;mGeneration=2}], mCallingUid: null, mResolvedUserId: null }
+  mHardwareList:
+    TvInputHardwareInfo {id=1413742592, type=2, audio_type=-2147467264, audio_addr=1, cable_connection_status=0}
+    TvInputHardwareInfo {id=1413742848, type=2, audio_type=-2147467264, audio_addr=1, cable_connection_status=0}
+    TvInputHardwareInfo {id=1413743104, type=3, audio_type=-2147450880, audio_addr=11, cable_connection_status=0}
+    TvInputHardwareInfo {id=1413743360, type=3, audio_type=-2147450880, audio_addr=13, cable_connection_status=0}
+    TvInputHardwareInfo {id=1413743616, type=7, audio_type=-2147450880, audio_addr=51, cable_connection_status=0}
+    TvInputHardwareInfo {id=1413744128, type=9, audio_type=-2147483616, audio_addr=1, hdmi_port=1, cable_connection_status=0}
+    TvInputHardwareInfo {id=1413744384, type=9, audio_type=-2147483616, audio_addr=2, hdmi_port=2, cable_connection_status=0}
+    TvInputHardwareInfo {id=1413744640, type=9, audio_type=-2147483616, audio_addr=3, hdmi_port=3, cable_connection_status=0}
+    TvInputHardwareInfo {id=1413745408, type=5, audio_type=2097152, audio_addr=2, cable_connection_status=0}
+    TvInputHardwareInfo {id=1413745664, type=9, audio_type=-2147483616, audio_addr=4, hdmi_port=4, cable_connection_status=0}
+  mHdmiDeviceList:
+  mHardwareInputIdMap: deviceId -> inputId
+    1413742848: com.tcl.tvinput/.TDTVInputService/HW1413742848
+    1413743104: com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413743104
+    1413744128: com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744128
+    1413744384: com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744384
+    1413744640: com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744640
+  mHdmiInputIdMap: id -> inputId
+  mInputMap: inputId -> inputInfo
+    com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413743104: TvInputInfo{id=com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413743104, pkg=com.tcl.tvinput, service=com.tcl.tvinput.passthroughinput.TvPassThroughService}
+    com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744128: TvInputInfo{id=com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744128, pkg=com.tcl.tvinput, service=com.tcl.tvinput.passthroughinput.TvPassThroughService}
+    com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744384: TvInputInfo{id=com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744384, pkg=com.tcl.tvinput, service=com.tcl.tvinput.passthroughinput.TvPassThroughService}
+    com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744640: TvInputInfo{id=com.tcl.tvinput/.passthroughinput.TvPassThroughService/HW1413744640, pkg=com.tcl.tvinput, service=com.tcl.tvinput.passthroughinput.TvPassThroughService}
+    com.tcl.tvinput/.TDTVInputService/HW1413742848: TvInputInfo{id=com.tcl.tvinput/.TDTVInputService/HW1413742848, pkg=com.tcl.tvinput, service=com.tcl.tvinput.TDTVInputService}

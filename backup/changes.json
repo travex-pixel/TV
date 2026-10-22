@@ -1,0 +1,133 @@
+{
+  "home": null,
+  "log": [
+    {
+      "action": "disable",
+      "after": "disabled",
+      "at": "2026-10-23T00:38:02+1100",
+      "before": "enabled",
+      "output": "Package android.autoinstalls.config.tcl.device new state: disabled-user",
+      "package": "android.autoinstalls.config.tcl.device"
+    },
+    {
+      "action": "setting",
+      "after": "0.5",
+      "at": "2026-10-23T00:38:11+1100",
+      "before": "1.0",
+      "key": "global:window_animation_scale",
+      "output": ""
+    },
+    {
+      "action": "setting",
+      "after": "0.5",
+      "at": "2026-10-23T00:38:26+1100",
+      "before": "1.0",
+      "key": "global:transition_animation_scale",
+      "output": ""
+    },
+    {
+      "action": "setting",
+      "after": "0.5",
+      "at": "2026-10-23T00:38:32+1100",
+      "before": "null",
+      "key": "global:animator_duration_scale",
+      "output": ""
+    },
+    {
+      "action": "setting",
+      "after": "dns.adguard-dns.com",
+      "at": "2026-10-23T00:38:39+1100",
+      "before": "null",
+      "key": "global:private_dns_specifier",
+      "output": ""
+    },
+    {
+      "action": "setting",
+      "after": "dns.adguard-dns.com",
+      "at": "2026-10-23T00:38:56+1100",
+      "before": "dns.adguard-dns.com",
+      "key": "global:private_dns_specifier",
+      "output": ""
+    },
+    {
+      "action": "setting",
+      "after": "hostname",
+      "at": "2026-10-23T00:39:03+1100",
+      "before": "null",
+      "key": "global:private_dns_mode",
+      "output": ""
+    }
+  ],
+  "packages": {
+    "android.autoinstalls.config.tcl.device": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.google.android.feedback": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.google.android.leanbacklauncher.recommendations": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.google.android.onetimeinitializer": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.google.android.partnersetup": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.google.android.tv.bugreportsender": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.google.android.tvrecommendations": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.tcl.bi": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.tcl.esticker": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.tcl.messagebox": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.tcl.partnercustomizer": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.tcl.tv.tclhome_passive": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    },
+    "com.tcl.waterfall.overseas": {
+      "list": "profile/debloat-approved.txt",
+      "original": "enabled"
+    }
+  },
+  "settings": {
+    "global:animator_duration_scale": {
+      "original": "null"
+    },
+    "global:private_dns_mode": {
+      "original": "null"
+    },
+    "global:private_dns_specifier": {
+      "original": "null"
+    },
+    "global:transition_animation_scale": {
+      "original": "1.0"
+    },
+    "global:window_animation_scale": {
+      "original": "1.0"
+    }
+  },
+  "version": 1
+}
