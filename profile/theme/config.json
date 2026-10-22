@@ -1,0 +1,22 @@
+{
+  "dock_apps": [
+    "com.netflix.ninja",
+    "com.google.android.youtube.tv",
+    "com.disney.disneyplus",
+    "com.amazon.amazonvideo.livingroom",
+    "com.crunchyroll.crunchyroid"
+  ],
+  "columns": 5,
+  "fill_dock": false,
+  "hidden_apps": ["com.tcl.tv"],
+  "live_tv_package": "com.tcl.tv",
+  "app_library": true,
+  "show_network_pill": false,
+  "wallpaper": true,
+  "wallpaper_rotation_minutes": 30,
+  "wallpaper_order": "shuffle",
+  "wallpaper_dim": 25,
+  "ambient_glow": false,
+  "reduced_motion": false,
+  "home_idle_clock_minutes": 0
+}

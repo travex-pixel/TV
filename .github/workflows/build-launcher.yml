@@ -11,7 +11,7 @@ on:
       - ".github/workflows/build-launcher.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   launcher:
@@ -37,6 +37,16 @@ jobs:
           ls -la "$apk"
           sha256sum "$apk" | tee cleanyourtv/launcher/app/build/outputs/apk/release/app-release.apk.sha256
           test "$(stat -c %s "$apk")" -lt 450560
+      - name: Commit the APK to the branch (the cloud session cannot reach artifact storage)
+        run: |
+          mkdir -p launcher-apk
+          cp cleanyourtv/launcher/app/build/outputs/apk/release/app-release.apk launcher-apk/tvhome.apk
+          (cd launcher-apk && sha256sum tvhome.apk > tvhome.apk.sha256)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add launcher-apk
+          git diff --cached --quiet && echo "APK unchanged" || git commit -m "CI: launcher APK built from ${GITHUB_SHA}"
+          git push origin HEAD:${GITHUB_REF_NAME}
       - uses: actions/upload-artifact@v4
         with:
           name: tvhome-launcher-apk

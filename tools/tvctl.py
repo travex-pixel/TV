@@ -7,7 +7,8 @@
     tvctl.py home <pkg/activity> [--dry-run] set the HOME activity, recording the original
     tvctl.py restore [--dry-run] [--pkg P]   undo every recorded change (packages, settings, home)
     tvctl.py verify                          compare the TV with the recorded changes (drift check)
-    tvctl.py shot <name>                     screenshot the TV into shots/<name>.png
+    tvctl.py shot <name> [--home]            screenshot the TV into shots/<name>.png (--home presses Home first)
+    tvctl.py launcher install|theme|start|uninstall   Phase 5: install the CI-built APK, push profile/theme, start it
     tvctl.py bench <name>                    start-up timings, CPU and memory snapshot into bench/<name>/
 
 Environment: TV_HOST (ip or ip:port, default port 5555), ADB (default: adb on PATH).
@@ -247,7 +248,8 @@ def cmd_apply(args):
             continue
         out = shell(f"pm disable-user --user 0 {pkg}")
         after = state_of(pkg, installed, packages("-d"))
-        log({"action": "disable", "package": pkg, "before": before, "after": after, "output": out})
+        # log() reloads the file and appends; keep that copy so the next save does not drop the entry
+        changes = log({"action": "disable", "package": pkg, "before": before, "after": after, "output": out})
         print(f"  {'ok    ' if after == 'disabled' else 'FAILED'} {pkg}: {out or after}")
         done += after == "disabled"
     if not dry:
@@ -371,7 +373,8 @@ def cmd_verify(_):
 
 def cmd_shot(args):
     connect(); d = ROOT / "shots"; d.mkdir(exist_ok=True)
-    shot(d / f"{re.sub(r'[^A-Za-z0-9_.-]', '_', args[0] if args else 'shot')}.png")
+    names = [a for a in args if not a.startswith("--")]
+    shot(d / f"{re.sub(r'[^A-Za-z0-9_.-]', '_', names[0] if names else 'shot')}.png", go_home="--home" in args)
 
 
 def cmd_bench(args):
@@ -387,8 +390,7 @@ def cmd_bench(args):
     for label, pkg in targets.items():
         times = []
         for _ in range(3):
-            if pkg:
-                shell(f"am force-stop {pkg}")
+            shell(f"am force-stop {pkg or res['home'].split('/')[0]}")   # cold start every time
             time.sleep(2)
             cmd = ("am start -W -a android.intent.action.MAIN -c android.intent.category.HOME" if not pkg
                    else f"am start -W $(cmd package resolve-activity --brief -a android.intent.action.MAIN "
@@ -406,6 +408,71 @@ def cmd_bench(args):
 
 COMMANDS = {"backup": cmd_backup, "apply": cmd_apply, "setting": cmd_setting, "home": cmd_home,
             "restore": cmd_restore, "verify": cmd_verify, "shot": cmd_shot, "bench": cmd_bench}
+
+
+# ---------------------------------------------------------------- launcher (added for Phase 5)
+LAUNCHER = "com.gathin.tvhome"
+THEME_DIR = f"/sdcard/Android/data/{LAUNCHER}/files"
+APK = ROOT / "launcher-apk" / "tvhome.apk"
+
+
+def cmd_launcher(args):
+    sub = args[0] if args else ""
+    manifest = need_manifest(); connect(); check_identity(manifest)
+    adb_bin = os.environ.get("ADB", "adb")
+    if sub == "install":
+        sha = (APK.with_suffix(".apk.sha256").read_text().split() or [""])[0]
+        import hashlib
+        got = hashlib.sha256(APK.read_bytes()).hexdigest()
+        if sha != got:
+            sys.exit(f"REFUSING: {APK} does not match its recorded sha256")
+        print(f"APK sha256 OK ({got[:16]}...), {APK.stat().st_size} bytes")
+        r = subprocess.run([adb_bin, "-s", target(), "install", "-r", str(APK)], capture_output=True, text=True)
+        print((r.stdout + r.stderr).strip())
+        if "Success" not in r.stdout + r.stderr:
+            sys.exit("install failed; the stock launcher and Home are untouched")
+        log({"action": "launcher-install", "sha256": got, "output": r.stdout.strip()})
+        print(f"installed. HOME still resolves to {home_now()} (unchanged on purpose)")
+    elif sub == "theme":
+        theme = ROOT / "profile" / "theme"
+        json.loads((theme / "config.json").read_text())        # must be valid JSON
+        shell(f"mkdir -p {THEME_DIR}/wallpapers; rm -f {THEME_DIR}/wallpapers/*")
+        files = [theme / "config.json"] + sorted((theme / "wallpapers").glob("*"))
+        for f in files:
+            if not re.fullmatch(r"[A-Za-z0-9_.-]+", f.name):
+                sys.exit(f"bad theme filename: {f.name}")
+            dest = f"{THEME_DIR}/{'wallpapers/' if f.parent.name == 'wallpapers' else ''}{f.name}"
+            r = subprocess.run([adb_bin, "-s", target(), "push", str(f), dest], capture_output=True, text=True)
+            if r.returncode != 0:
+                sys.exit(f"push failed for {f.name}: {r.stderr.strip()}")
+        shell(f"echo {int(time.time())} > {THEME_DIR}/theme_revision")
+        listing = shell(f"ls -la {THEME_DIR} {THEME_DIR}/wallpapers | head -30")
+        print(listing)
+        shell(f"am force-stop {LAUNCHER}")
+        log({"action": "launcher-theme", "files": [f.name for f in files]})
+        print(f"theme pushed ({len(files)} files). Start it with: tvctl.py launcher start")
+    elif sub == "start":
+        out = shell(f"am start -W -n {LAUNCHER}/.MainActivity")
+        print(out)
+        ok = "Status: ok" in out and "Error" not in out
+        time.sleep(4)
+        d = ROOT / "shots"; d.mkdir(exist_ok=True)
+        shot(d / f"launcher-{time.strftime('%Y%m%d-%H%M%S')}.png")
+        crash = shell(f"logcat -d -b crash -t 50 | grep -c {LAUNCHER}")
+        print(f"started: {'yes' if ok else 'NO'}; crash-buffer lines mentioning the launcher: {crash}; "
+              f"HOME still {home_now()}")
+    elif sub == "uninstall":
+        if home_now().startswith(LAUNCHER):
+            sys.exit("REFUSING: the launcher owns Home; run `tvctl.py restore` first")
+        r = subprocess.run([adb_bin, "-s", target(), "uninstall", LAUNCHER], capture_output=True, text=True)
+        print((r.stdout + r.stderr).strip()); log({"action": "launcher-uninstall", "output": r.stdout.strip()})
+    else:
+        sys.exit("usage: tvctl.py launcher <install|theme|start|uninstall>")
+
+
+COMMANDS["launcher"] = cmd_launcher
+
+
 if __name__ == "__main__":
     if len(sys.argv) < 2 or sys.argv[1] not in COMMANDS:
         sys.exit(__doc__)
