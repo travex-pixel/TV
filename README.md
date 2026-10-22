@@ -16,6 +16,8 @@ recorded with its original value and a rollback.
 | `tools/tv-discover.sh` | Read-only TV discovery script (macOS / Linux) |
 | `tools/tv-discover.ps1` | Read-only TV discovery script (Windows PowerShell) |
 | `tools/tvctl.py` | Backup, apply, restore (dry run), verify, screenshot and benchmark for the TV over adb; manifest-driven, device-identity checked |
+| `profile/debloat-approved.txt` | The approved list actually applied (Tier 1 only) |
+| `docs/05-approved-changes.md` | What was approved, declined, and applied, with rollback for each |
 | `profile/debloat-proposed.txt` | The tiered package proposal for this TV (nothing applied without approval) |
 | `docs/04-backup-and-debloat-proposal.md` | Backup/restore design, Partner Review 2 results, the Tier 1/2/3 proposal and the approval questions |
 | `tools/match-profile.py` | Scores CleanYourTV's example lists against a discovery run (offline) |

@@ -1,0 +1,17 @@
+# TCL BeyondTV (AU, TCL-AU-RT2851-S1), Android TV 9, build AP08. APPROVED 2026-10-23: Tier 1 only.
+# Apply:  TV_HOST=192.168.0.103 python3 tools/tvctl.py apply profile/debloat-approved.txt
+# Undo:   TV_HOST=192.168.0.103 python3 tools/tvctl.py restore
+# Disabled for user 0, never uninstalled. Evidence and tiers: docs/04-backup-and-debloat-proposal.md.
+com.tcl.bi                                  # TCL BI analytics; two processes resident right now
+com.tcl.tv.tclhome_passive                  # pushes TCL promo content into the home screen at boot; process resident
+com.tcl.partnercustomizer                   # TCL promo rows / TCL Channel tile on the stock home; process resident
+com.tcl.messagebox                          # TCL message/promo box; process resident
+com.tcl.esticker                            # retail energy-label sticker (came back by itself on one AP08 unit; harmless if so)
+com.tcl.waterfall.overseas                  # TCL web content feed
+com.google.android.tvrecommendations        # stock home recommendation rows (14 MB resident); pointless with the new launcher
+com.google.android.leanbacklauncher.recommendations   # same, older recommendation service
+com.google.android.feedback                 # "send feedback" uploader
+com.google.android.tv.bugreportsender       # bug report uploader
+com.google.android.partnersetup             # partner-app attribution
+com.google.android.onetimeinitializer       # first-run leftovers
+android.autoinstalls.config.tcl.device      # partner-app auto-installer config
