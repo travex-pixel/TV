@@ -21,5 +21,6 @@
   "ambient_glow": false,
   "reduced_motion": false,
   "home_idle_clock_minutes": 0,
-  "wallpaper_true_color": true
+  "wallpaper_true_color": true,
+  "cinematic_home": true
 }
