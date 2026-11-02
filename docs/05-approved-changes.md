@@ -36,3 +36,4 @@ for the first batch exists only in the owner's terminal.
 | 2026-10-23 01:03 | Reboot | new launcher is Home after restart; 13 packages still disabled, 0 drift | `bench/after/`, `shots/after-reboot.png` |
 | 2026-10-23 | Wallpapers switched to 32-bit decode (`wallpaper_true_color`) to remove gradient banding | pushed; owner applied with `launcher theme` | `profile/theme/config.json` |
 | 2026-10-23 | Photographic wallpapers | **declined for now** by the owner. Wikimedia Commons throttles this cloud address (HTTP 429, retry-after 600 s) and serves thumbnails from `thumb.wikimedia.org`, which was not allowed; the phone route (own photos into `profile/theme/photos`) remains available any time | n/a |
+| 2026-11-02 | Screensaver: `screensaver_components` → `com.gathin.tvhome/.ClockDream` (was Google Backdrop) | requested by owner; applied via `tvctl.py setting` so the original is recorded | `backup/changes.json` |

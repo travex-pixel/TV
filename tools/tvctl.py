@@ -25,7 +25,7 @@ CHANGES = BACKUP / "changes.json"
 MANIFEST = BACKUP / "manifest.json"
 PKG_RE = re.compile(r"[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z0-9_]+)+")
 COMP_RE = re.compile(r"[A-Za-z_][\w.]*/[\w.$]+")
-SETTING_RE = re.compile(r"[A-Za-z0-9_.:-]+")
+SETTING_RE = re.compile(r"[A-Za-z0-9_.:/-]+")
 
 # Load-bearing on TCL BeyondTV / RTD2851 Android TV 9 (from the sibling reports in cleanyourtv/examples)
 # and Android basics. `apply` refuses these unless --allow <pkg> names them explicitly.
